@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --backdrop-blur-xs: 2px;
+  --background-image-gradient-radial: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+@import "../stylesheets/glassmorf.css"

@@ -1,0 +1,5 @@
+<%= form_with url: registration_url do |form| %>
+  <%= form.email_field :email_address, required: true, autocomplete: "email", placeholder: "Введите email", value: params[:email_address]%>
+  <%= form.password_field :password, required: true, autocomplete: "new-password", placeholser: "Введите пароль", maxlenght: 72 %>
+  <%= form.submit "Зарегистрироваться" %>
+<% end %>
