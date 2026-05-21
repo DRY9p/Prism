@@ -1,0 +1,13 @@
+<% if alert = flash[:alert] %>
+  <div class="glass inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm text-purple-200 mb-6" id="alert">
+    <span class="w-2 h-2 rounded-full bg-green-400"></span>
+    <%= alert %>
+  </div>
+<% end %>
+
+<% if notice = flash[:notice] %>
+  <div class="glass inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm text-purple-200 mb-6" id="notice">
+    <span class="w-2 h-2 rounded-full bg-green-400"></span>
+    <%= notice %>
+  </div>
+<% end %>

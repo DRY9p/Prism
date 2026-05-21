@@ -1,31 +1,30 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <% if alert = flash[:alert] %>
-    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
-  <% end %>
+<section class="w-[95%] max-w-5xl mx-auto py-8">
+  <div class="glass-light rounded-3xl p-8 sm:p-10 relative overflow-hidden text-center">
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
-  <% if notice = flash[:notice] %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+    <div class="relative z-10">
+      <%= render "shared/flash" %>
 
-  <h1 class="font-bold text-4xl">Sign in</h1>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-white">Вход в систему</h1>
+      <p class="text-white/50 text-sm mb-8">Войдите, чтобы открыть дашборды и отчётность</p>
 
-  <%= form_with url: session_url, class: "contents" do |form| %>
-    <div class="my-5">
-      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "block shadow-sm rounded-md border border-gray-400 focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+      <%= form_with url: session_url, class: "text-left space-y-5" do |form| %>
+        <%= render "shared/auth_fields", form: form %>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2 mt-4">
+          <%= form.submit "Войти",
+                class: "w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white shadow-2xl shadow-purple-600/30 hover:shadow-purple-500/50 transition-all duration-300 active:scale-95 cursor-pointer" %>
+
+          <%= link_to "Забыли пароль?", new_password_path,
+                class: "text-sm text-white/50 hover:text-purple-300 transition-colors text-center sm:text-right" %>
+        </div>
+      <% end %>
+
+      <p class="text-xs text-white/25 mt-8">
+        Нет аккаунта?
+        <%= link_to "Зарегистрироваться", new_registration_path, class: "text-purple-300 hover:text-purple-200 transition-colors" %>
+      </p>
     </div>
-
-    <div class="my-5">
-      <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "block shadow-sm rounded-md border border-gray-400 focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-      <div class="inline">
-        <%= form.submit "Sign in", class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-      </div>
-
-      <div class="mt-4 text-sm text-gray-500 sm:mt-0">
-        <%= link_to "Forgot password?", new_password_path, class: "text-gray-700 underline hover:no-underline" %>
-      </div>
-    </div>
-  <% end %>
-</div>
+  </div>
+</section>
