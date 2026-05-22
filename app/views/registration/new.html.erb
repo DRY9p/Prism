@@ -9,8 +9,18 @@
       <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-white">Регистрация</h1>
       <p class="text-white/50 text-sm mb-8">Сначала необходимо зарегестрироваться</p>
 
-      <%= form_with model: @user, class: "text-left space-y-5" do |form| %>
+      <%= form_with url: registration_index_url, class: "text-left space-y-5" do |form| %>
         <%= render "shared/auth_fields", form: form %>
+        <div>
+          <%= form.label :password_confirmation, "Подтверждение пароля", class: "block text-sm font-medium text-white/70 mb-2 mt-2" %>
+          <%= form.password_field :password_confirmation,
+                required: true,
+                autocomplete: "current-password",
+                placeholder: "Подтвердите пароль",
+                maxlength: 72,
+                class: "glass w-full px-5 py-3.5 rounded-xl text-white placeholder-white/30 outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300" %>
+        </div>
+
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2 mt-4">
           <%= form.submit "Зарегистрироваться", class: "w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white shadow-2xl shadow-purple-600/30 hover:shadow-purple-500/50 transition-all duration-300 active:scale-95 cursor-pointer" %>
         </div>
