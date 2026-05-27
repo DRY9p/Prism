@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "dashboards/dashboard"
   root "home#index"
 
   resource :session, only: %i[new create destroy]
