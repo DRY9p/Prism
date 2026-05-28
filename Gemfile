@@ -68,3 +68,5 @@ group :test do
 end
 
 gem "pry"
+
+gem "tiny_tds"

@@ -20,7 +20,33 @@
                 maxlength: 72,
                 class: "glass w-full px-5 py-3.5 rounded-xl text-white placeholder-white/30 outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300" %>
         </div>
-
+        <div>
+          <%= form.label :first_name, "Имя", class: "block text-sm font-medium text-white/70 mb-2 mt-2" %>
+          <%= form.text_field :first_name,
+                required: true,
+                autocomplete: "first-name",
+                placeholder: "Введите ваше имя",
+                maxlength: 72,
+                class: "glass w-full px-5 py-3.5 rounded-xl text-white placeholder-white/30 outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300" %>
+        </div>
+        <div>
+          <%= form.label :last_name, "Фамилия", class: "block text-sm font-medium text-white/70 mb-2 mt-2" %>
+          <%= form.text_field :last_name,
+                required: true,
+                autocomplete: "last-name",
+                placeholder: "Введите фамилию",
+                maxlength: 72,
+                class: "glass w-full px-5 py-3.5 rounded-xl text-white placeholder-white/30 outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300" %>
+        </div>
+        <div>
+          <%= form.label :middle_name, "Отчество", class: "block text-sm font-medium text-white/70 mb-2 mt-2" %>
+          <%= form.text_field :middle_name,
+                required: true,
+                autocomplete: "middle-name",
+                placeholder: "Введите отчество",
+                maxlength: 72,
+                class: "glass w-full px-5 py-3.5 rounded-xl text-white placeholder-white/30 outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300" %>
+        </div>
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2 mt-4">
           <%= form.submit "Зарегистрироваться", class: "w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white shadow-2xl shadow-purple-600/30 hover:shadow-purple-500/50 transition-all duration-300 active:scale-95 cursor-pointer" %>
         </div>
