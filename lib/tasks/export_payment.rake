@@ -1,8 +1,9 @@
 namespace :export do
   desc "Export data from MSSQL VPaymentInfo for given user and date"
   task payment_info: :environment do
-    # === Параметры ===
+    # === Параметры для тестов ===
     user_id   = ENV.fetch('USER_ID', '76').to_i
+    # === Дата в формате 'DD-MM-YYYY' ===
     date_from = Date.parse(ENV.fetch('DATE_FROM', '27-05-2026'))
 
     # === Прямое подключение к MSSQL ===
@@ -56,7 +57,8 @@ namespace :export do
     SQL
 
     # Выполняем параметризированный запрос
-    result = client.execute(sql, date_from, user_id)
+    sanitized_sql = ActiveRecord::Base.sanitize_sql([sql, date_from, user_id])
+    result = client.execute(sanitized_sql)
 
     count = 0
     result.each do |row|
